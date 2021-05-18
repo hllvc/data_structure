@@ -11,7 +11,17 @@ void Stack::push(const std::string& input) {
     this->TOP_ = new_node;
   }
 }
-const std::string& Stack::top() const {}
-std::string Stack::pop() {}
+
+const std::string& Stack::top() const { return this->TOP_->data_; }
+
+std::string Stack::pop() {
+  std::string data = this->TOP_->data_;
+  Node* to_delete = this->TOP_;
+  this->TOP_ = this->TOP_->prev_;
+  this->TOP_->next_ = nullptr;
+  delete to_delete;
+  return data;
+}
+
 bool Stack::prazan() const {}
 void Stack::ispisi() const {}
