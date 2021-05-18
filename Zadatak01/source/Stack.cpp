@@ -4,9 +4,8 @@
 
 void Stack::push(const std::string& input) {
   Node* new_node = new Node(input);
-  if (this->TOP_ == nullptr || this->BOTTOM_ == nullptr) {
+  if (this->TOP_ == nullptr) {
     this->TOP_ = new_node;
-    this->BOTTOM_ = new_node;
   } else {
     this->TOP_->next_ = new_node;
     new_node->prev_ = this->TOP_;
@@ -25,9 +24,7 @@ std::string Stack::pop() {
   return data;
 }
 
-bool Stack::prazan() const {
-  return (this->TOP_ == nullptr || this->BOTTOM_ == nullptr) ? true : false;
-}
+bool Stack::prazan() const { return (this->TOP_ == nullptr) ? true : false; }
 
 void Stack::ispisi() const {
   Node* head_ref = this->TOP_;
