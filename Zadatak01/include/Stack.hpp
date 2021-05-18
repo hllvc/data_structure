@@ -12,8 +12,8 @@ struct Stack : private StackInterface {
 
     Node(const std::string& data) : data_(data){};
   };
-  Node* BOTTOM_;
-  Node* TOP_;
+  Node* BOTTOM_ = nullptr;
+  Node* TOP_ = nullptr;
 
  public:
   void push(const std::string&);
