@@ -1,5 +1,7 @@
 #include "../include/Stack.hpp"
 
+#include <iostream>
+
 void Stack::push(const std::string& input) {
   Node* new_node = new Node(input);
   if (this->TOP_ == nullptr || this->BOTTOM_ == nullptr) {
@@ -23,5 +25,14 @@ std::string Stack::pop() {
   return data;
 }
 
-bool Stack::prazan() const {}
-void Stack::ispisi() const {}
+bool Stack::prazan() const {
+  return (this->TOP_ == nullptr || this->BOTTOM_ == nullptr) ? true : false;
+}
+
+void Stack::ispisi() const {
+  while (this->TOP_ != this->BOTTOM_) {
+    Node* head_ref = this->TOP_;
+    std::cout << head_ref->data_ << std::endl;
+    head_ref = head_ref->prev_;
+  }
+}
