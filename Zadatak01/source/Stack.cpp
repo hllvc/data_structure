@@ -30,8 +30,8 @@ bool Stack::prazan() const {
 }
 
 void Stack::ispisi() const {
-  while (this->TOP_ != this->BOTTOM_) {
-    Node* head_ref = this->TOP_;
+  Node* head_ref = this->TOP_;
+  while (head_ref) {
     std::cout << head_ref->data_ << std::endl;
     head_ref = head_ref->prev_;
   }
