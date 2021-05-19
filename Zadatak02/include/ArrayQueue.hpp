@@ -25,8 +25,19 @@ struct ArrayQueue : private Queue {
     for (auto i = 0; i < this->size_; i++)
       this->arr_ptr_[i] = old_arr.arr_ptr_[i];
   }
+
   ArrayQueue(ArrayQueue&&);
-  void operator=(const ArrayQueue&);
+
+  void operator=(const ArrayQueue& old_arr) {
+    this->capacity_ = old_arr.capacity_;
+    this->arr_ptr_ = new int[this->capacity_];
+    this->size_ = old_arr.size_;
+    this->HEAD_ = old_arr.HEAD_;
+    this->TAIL_ = old_arr.TAIL_;
+    for (auto i = 0; i < this->size_; i++)
+      this->arr_ptr_[i] = old_arr.arr_ptr_[i];
+  }
+
   void operator=(ArrayQueue&&);
 
   bool empty() const override;
