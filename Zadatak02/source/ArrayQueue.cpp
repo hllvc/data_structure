@@ -7,8 +7,15 @@
 void ArrayQueue::realocate() {	    // method to realocate size of array
   int* to_delete = this->arr_ptr_;  // save old array
   this->arr_ptr_ = new int[this->capacity_ *= 2];  // double the capacity
-  for (auto i = 0; i < this->size(); ++i)	   // iterate and copy ellements
-    *(this->arr_ptr_ + i) = *(to_delete + i);
+  for (auto i = 0; i <= this->HEAD_; ++i)	   // iterate and copy ellements
+    this->arr_ptr_[i] = to_delete[i];
+  if (this->HEAD_ < this->TAIL_) {
+    int old_index = this->capacity_ / 2 - 1;
+    int new_index = this->capacity_ - 1;
+    for (; old_index >= this->TAIL_; old_index--, new_index--)
+      this->arr_ptr_[new_index] = to_delete[old_index];
+    this->TAIL_ = ++new_index;
+  }
   delete to_delete;  // delete old array
 }
 
