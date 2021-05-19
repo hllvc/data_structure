@@ -18,11 +18,11 @@ struct Stack : private StackInterface {
   Node* HEAD_ = nullptr;
 
  public:
-  void push(const std::string&);
-  const std::string& top() const;
-  std::string pop();
-  bool prazan() const;
-  void ispisi() const;
+  void push(const std::string&) override;
+  const std::string& top() const override;
+  std::string pop() override;
+  bool prazan() const override;
+  void ispisi() const override;
 };
 
 #endif	// __STACK_H__
