@@ -11,6 +11,8 @@ struct ArrayQueue : private Queue {
   int HEAD_{-1};
   int TAIL_{-1};
 
+  void realocate();
+
  public:
   ArrayQueue() : arr_ptr_(new int[capacity_]){};
 
