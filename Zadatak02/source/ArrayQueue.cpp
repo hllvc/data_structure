@@ -1,7 +1,5 @@
 #include "../include/ArrayQueue.hpp"
 
-#include <iostream>
-
 #include "string"
 
 void ArrayQueue::realocate() {	    // method to realocate size of array
