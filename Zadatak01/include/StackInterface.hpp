@@ -1,3 +1,6 @@
+#ifndef __STACK_INTERFACE_H__
+#define __STACK_INTERFACE_H__
+
 #include <string>
 
 struct StackInterface {
@@ -7,3 +10,5 @@ struct StackInterface {
   virtual bool prazan() const = 0;
   virtual void ispisi() const = 0;
 };
+
+#endif	// __STACK_INTERFACE_H__

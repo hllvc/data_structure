@@ -1,3 +1,6 @@
+#ifndef __STACK_H__
+#define __STACK_H__
+
 #include "StackInterface.hpp"
 
 struct Stack : private StackInterface {
@@ -21,3 +24,5 @@ struct Stack : private StackInterface {
   bool prazan() const;
   void ispisi() const;
 };
+
+#endif	// __STACK_H__
