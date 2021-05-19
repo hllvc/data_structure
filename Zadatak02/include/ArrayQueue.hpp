@@ -20,7 +20,7 @@ struct ArrayQueue : private Queue {
   int size() const override;
   const int& front() const override;
   const int& back() const override;
-  void push() override;
+  void push(const int data) override;
   int pop() override;
 };
 

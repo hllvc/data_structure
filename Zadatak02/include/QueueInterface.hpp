@@ -6,7 +6,7 @@ struct Queue {
   virtual int size() const = 0;
   virtual const int& front() const = 0;
   virtual const int& back() const = 0;
-  virtual void push() = 0;
+  virtual void push(const int data) = 0;
   virtual int pop() = 0;
 };
 
