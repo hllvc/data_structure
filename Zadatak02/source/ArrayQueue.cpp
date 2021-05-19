@@ -24,6 +24,22 @@ const int& ArrayQueue::back() const { return this->arr_ptr_[this->HEAD_]; }
 void ArrayQueue::push(const int data) {
   if (this->size_ == this->capacity_) realocate();
   if (this->HEAD_ == -1) this->TAIL_++;
+  if (this->HEAD_ + 1 == this->capacity_) this->HEAD_ = 0;
   this->arr_ptr_[++this->HEAD_] = data;
   this->size_++;
+}
+
+int ArrayQueue::pop() {
+  if (this->empty()) throw std::string("Queue empty!");
+  this->size_--;
+  int data;
+  if (this->TAIL_ == this->HEAD_) {
+    data = this->arr_ptr_[this->TAIL_];
+    this->TAIL_ = -1;
+    this->HEAD_ = -1;
+  } else if (this->TAIL_ + 1 == this->capacity_) {
+    data = this->arr_ptr_[this->TAIL_];
+    this->TAIL_ = 0;
+  }
+  return data;
 }
