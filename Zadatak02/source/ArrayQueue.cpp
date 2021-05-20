@@ -2,6 +2,22 @@
 
 #include "string"
 
+ArrayQueue::ArrayQueue(ArrayQueue&& rhs) {
+  this->capacity_ = rhs.capacity_;
+  this->arr_ptr_ = new int[this->capacity_];
+  this->size_ = rhs.size_;
+  this->HEAD_ = rhs.HEAD_;
+  this->TAIL_ = rhs.TAIL_;
+}
+
+void ArrayQueue::operator=(ArrayQueue&& rhs) {
+  this->capacity_ = rhs.capacity_;
+  this->arr_ptr_ = new int[this->capacity_];
+  this->size_ = rhs.size_;
+  this->HEAD_ = rhs.HEAD_;
+  this->TAIL_ = rhs.TAIL_;
+}
+
 void ArrayQueue::realocate() {	    // method to realocate size of array
   int* to_delete = this->arr_ptr_;  // save old array
   this->arr_ptr_ = new int[this->capacity_ *= 2];  // double the capacity
