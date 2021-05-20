@@ -15,6 +15,7 @@ struct ArrayQueue : private Queue {
 
  public:
   ArrayQueue() : arr_ptr_(new int[capacity_]){};
+  ~ArrayQueue() { delete this->arr_ptr_; }
 
   ArrayQueue(const ArrayQueue& old_arr)
       : capacity_(old_arr.capacity_),
